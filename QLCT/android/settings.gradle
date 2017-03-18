@@ -1,0 +1,3 @@
+rootProject.name = 'QLCT'
+
+include ':app'
