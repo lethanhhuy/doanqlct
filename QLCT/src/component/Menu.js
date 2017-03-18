@@ -11,14 +11,14 @@ import{
 }from 'react-native';
 
 const window=Dimensions.get('window');
-const uri='1489787906_49.png';
+const uri='./1489787906_49.png';
 
 const styles = StyleSheet.create({
   menu:{
     flex:1,
     width: window.width,
     height:window.height,
-    backgroundColor:'gray',
+    backgroundColor:'#ecf0f1',
     padding:20,
   },
 
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   item:{
     fontSize:16,
     fontWeight:'300',
-    paddingTop: 10,
+    paddingTop: 40,
   }
 });
 
@@ -61,12 +61,17 @@ export default class Menu extends Component{
          <Text
            onPress={() =>this.props.onItemselected('abc')}
            style={styles.item}>
-           xyz
+           Tài Khoản
          </Text>
          <Text
            onPress={() =>this.props.onItemselected('123')}
            style={styles.item}>
-           456
+           Ngân Sách
+         </Text>
+         <Text
+           onPress={() =>this.props.onItemselected('123')}
+           style={styles.item}>
+           Báo Cáo
          </Text>
        </ScrollView>
 
