@@ -20,7 +20,7 @@
    View,
  } from 'react-native';
 
- const _uri='./1489787906_49.png';
+ const _uri='./src/img/1489787906_49.png';
 
 export default class QLCT extends Component {
   constructor(props){
@@ -54,9 +54,16 @@ export default class QLCT extends Component {
          menu={menu}
          isOpen={this.state.isOpen}
          onChange={(isOpen) => this.updateMenuState(isOpen)}>
+
          <View style={_styles._f0}>
            <View style={_styles._f1}>
-             <Text style={_styles._top}>Tổng Quan</Text>
+             <Button style={_styles.Button} onPress={() => this.toggle()}>
+               <Image
+                 source={require('./src/img/ic_menu_white_36dp.png')} />
+             </Button>
+             <Text style={_styles._top}>
+                 Tổng Quan
+             </Text>
            </View>
            <Text style={styles.welcome}>
              Welcome to React Native!
@@ -68,10 +75,7 @@ export default class QLCT extends Component {
            <Text style={[styles.instructions,{color:'red'}]}>
               DevTeam:{this.state.selectedItem}
            </Text>
-          <Button style={_styles.Button} onPress={() => this.toggle()}>
-            <Image
-              source={{uri:_uri,width:32,height:32,}} />
-          </Button>
+
           <ActionButton buttonColor='rgba(231,76,60,1)'>
             <ActionButton.Item buttonColor='#9b59b6' title="New Task" onPress={() => console.log("notes tapped!")}>
                 <Text>
@@ -96,9 +100,9 @@ export default class QLCT extends Component {
 }
 
 class Button extends Component{
-  handlePress(e){
+  handlePress(){
     if(this.props.onPress){
-      this.props.opPress(e);
+      this.props.onPress();
     }
   }
 
@@ -121,20 +125,27 @@ const _styles = StyleSheet.create(
     },
     _f1:{
       backgroundColor:'rgb(231, 76, 60)',
-      height:50,
+      height:35,
+      flexDirection: 'row',
     },
     _top:{
       color:'#ecf0f1',
       backgroundColor:'rgb(231, 76, 60)',
-      paddingTop: 10,
-      paddingLeft: 60,
+      paddingTop: 2,
+      paddingLeft: 30,
       fontWeight:'bold',
-      fontSize:20,
+      fontSize:18,
     },
     actionButtonIcon: {
      fontSize: 20,
      height: 22,
      color: 'white',
+   },
+   img:{
+     paddingTop: 35,
+     paddingLeft: 30,
+     width:10,
+     height:10,
    },
   }
 );
