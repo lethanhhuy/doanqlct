@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     flex:1,
     width: window.width,
     height:window.height,
-    backgroundColor:'#ecf0f1',
+    backgroundColor:'#e2ffef',
     padding:20,
   },
 
@@ -54,9 +54,9 @@ export default class Menu extends Component{
        <ScrollView scrollstoTop={false} style={styles.menu}>
          <View style={styles.avatarContainer}>
            <Image
-             style={styles.avatar}
-             source={{uri:uri}}/>
-           <Text style={styles.name}>Tên người dùng</Text>
+             style={{height:60, width: 60, borderRadius: 30}}
+             source={require('QLCT/images/avatar.jpg')}/>
+           <Text style={styles.name}>Siro đẹp trai của chị 3</Text>
          </View>
          <Text
            onPress={() =>this.props.onItemselected('abc')}

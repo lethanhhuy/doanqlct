@@ -6,11 +6,11 @@
 
  'use strict'
 
+
  import React,{Component} from 'react';
  import SideMenu from 'react-native-side-menu';
- import Menu from './src/component/Menu.js';
  import ActionButton from 'react-native-circular-action-menu';
-
+ import {Icon} from 'react-native-elements'
  import {
    AppRegistry,
    StyleSheet,
@@ -18,100 +18,35 @@
    Image,
    TouchableOpacity,
    View,
+   AsyncStorage,
+   Navigator
  } from 'react-native';
 
- const _uri='./1489787906_49.png';
+ import Menu from 'QLCT/src/component/Menu.js';
+ import Add from './src/component/Add.js';
+ import Main from './src/component/Main.js';
+ import Category from './src/component/Category.js';
+
+const _uri='./1489787906_49.png';
 
 export default class QLCT extends Component {
-  constructor(props){
-    super(props);
-    this.state={
-     isOpen: false,
-     selectedItem: 'About',
-    };
-  }
-
-  toggle(){
-    this.setState({
-      isOpen:!this.state.isOpen,
-    });
-  }
-
-  updateMenuState(isOpen){
-    this.setState({isOpen: isOpen});
-  }
-
-  onMenuItemselected=(item) =>{
-     this.setState({
-       isOpen:false,
-       selectedItem:item,
-     });
-  }
-  render() {
-    const menu=<Menu onItemselected={this.onMenuItemselected} />;
-    return (
-      <SideMenu
-         menu={menu}
-         isOpen={this.state.isOpen}
-         onChange={(isOpen) => this.updateMenuState(isOpen)}>
-         <View style={_styles._f0}>
-           <View style={_styles._f1}>
-             <Text style={_styles._top}>Tổng Quan</Text>
-           </View>
-           <Text style={styles.welcome}>
-             Welcome to React Native!
-           </Text>
-           <Text style={styles.instructions}>
-             Press Cmd+R to reload,{'\n'}
-             Cmd+D or shake for dev menu
-           </Text>
-           <Text style={[styles.instructions,{color:'red'}]}>
-              DevTeam:{this.state.selectedItem}
-           </Text>
-          <Button style={_styles.Button} onPress={() => this.toggle()}>
-            <Image
-              source={{uri:_uri,width:32,height:32,}} />
-          </Button>
-          <ActionButton buttonColor='rgba(231,76,60,1)'>
-            <ActionButton.Item buttonColor='#9b59b6' title="New Task" onPress={() => console.log("notes tapped!")}>
-                <Text>
-                  A
-                </Text>
-            </ActionButton.Item>
-            <ActionButton.Item buttonColor='#3498db' title="Notifications" onPress={() => {}}>
-              <Text>
-                B
-              </Text>
-            </ActionButton.Item>
-            <ActionButton.Item buttonColor='#1abc9c' title="All Tasks" onPress={() => {}}>
-              <Text>
-                C
-              </Text>
-            </ActionButton.Item>
-          </ActionButton>
-        </View>
-      </SideMenu>
-    );
-  }
-}
-
-class Button extends Component{
-  handlePress(e){
-    if(this.props.onPress){
-      this.props.opPress(e);
+  renderScene(route,navigator){
+    switch (route.name){
+      case 'main': return( <Main clickAdd={()=>{navigator.push({name:"add"});}}/> );
+      case 'add' : return( <Add clickCate={()=>{navigator.push({name:"cate"});}}/>);
+      case 'cate': return( <Category clickMain={()=>{navigator.push({name:"main"});}}/>);
     }
   }
-
-  render(){
-    return(
-      <TouchableOpacity
-        onPress={this.handlePress.bind(this)}
-        style={this.props.styles}>
-        <Text>{this.props.children}</Text>
-      </TouchableOpacity>
+  render() {
+    return (
+      <Navigator
+        initialRoute={{name:"main"}}
+        renderScene={this.renderScene}
+      />
     );
   }
 }
+
 
 const _styles = StyleSheet.create(
   {
@@ -161,6 +96,7 @@ const styles = StyleSheet.create({
    height: 22,
    color: 'white',
  },
+
 });
 
 AppRegistry.registerComponent('QLCT', () => QLCT);
