@@ -9,7 +9,8 @@ import{
   Image,
   View,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,
+  TouchableHighlight
 }from 'react-native';
 import {Button} from 'react-native-elements';
 const window=Dimensions.get('window');
@@ -22,10 +23,10 @@ export default class Category extends Component{
       <View style={{marginBottom: 100}}></View>
         <View style={styles.dong}>
           <View style={styles.cot}>
-            <Image
-              style={{height: 50, width: 50}}
-              source={require('QLCT/images/Icons/shopping.png')}/>
-            <Text>Shopping</Text>
+                <Image
+                  style={{height: 50, width: 50}}
+                  source={require('QLCT/images/Icons/shopping.png')}/>
+                <Text>Shopping</Text>  
           </View>
           <View style={styles.cot}>
           <Image

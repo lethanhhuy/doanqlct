@@ -1,11 +1,5 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
 
  'use strict'
-
 
  import React,{Component} from 'react';
  import SideMenu from 'react-native-side-menu';
@@ -23,9 +17,7 @@
    Navigator,
  } from 'react-native';
 
- const _uri='./1489787906_49.png';
-
-export default class QLCT extends Component {
+export default class Main extends Component {
   constructor(props){
     super(props);
     this.state={

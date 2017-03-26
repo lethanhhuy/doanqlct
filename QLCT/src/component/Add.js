@@ -13,6 +13,115 @@ import{
 }from 'react-native';
 import {Button} from 'react-native-elements';
 const window=Dimensions.get('window');
+
+export default class Add extends Component{
+  constructor(props) {
+   super(props);
+   this.state = {
+     text:'',
+     money:'',
+     a: "1",
+     clear_text:''
+   };
+ }
+ click(e){
+   this.setState({
+     text: this.state.text + e
+   });
+ }
+ clear(){
+   this.setState({
+     text: this.state.clear_text
+   });
+ }
+  render(){
+    return(
+        <View style={styles.backGround}>
+            <Text style={styles.total}>Tổng tiền là: 20 000 000 </Text>
+            <View style={styles.text_input}>
+              <Text style={styles.font_ti}>{this.state.text}</Text>
+            </View>
+
+            <View style={styles.dong}>
+              <View style={styles.cot}>
+                <TouchableOpacity onPress = {()=> {this.click("1")}}>
+                  <Text style={styles.chu}> 1 </Text>
+                </TouchableOpacity>
+              </View>
+              <View style={styles.cot}>
+                  <TouchableOpacity onPress = {()=> {this.click("2")}}>
+                    <Text style={styles.chu}> 2 </Text>
+                  </TouchableOpacity>
+              </View>
+              <View style={styles.cot}>
+                <TouchableOpacity onPress = {()=> {this.click("3")}}>
+                  <Text style={styles.chu}> 3 </Text>
+                </TouchableOpacity>
+              </View>
+
+            </View>
+            <View style={styles.dong}>
+              <View style={styles.cot}>
+                <TouchableOpacity onPress = {()=> {this.click("4")}}>
+                  <Text style={styles.chu}> 4 </Text>
+                </TouchableOpacity>
+              </View>
+              <View style={styles.cot}>
+                <TouchableOpacity onPress = {()=> {this.click("5")}}>
+                  <Text style={styles.chu}> 5 </Text>
+                </TouchableOpacity>
+              </View>
+              <View style={styles.cot}>
+                <TouchableOpacity onPress = {()=> {this.click("6")}}>
+                  <Text style={styles.chu}> 6 </Text>
+                </TouchableOpacity>
+              </View>
+
+            </View>
+            <View style={styles.dong}>
+              <View style={styles.cot}>
+                <TouchableOpacity onPress = {()=> {this.click("7")}}>
+                  <Text style={styles.chu}> 7 </Text>
+                </TouchableOpacity></View>
+              <View style={styles.cot}>
+                <TouchableOpacity onPress = {()=> {this.click("8")}}>
+                  <Text style={styles.chu}> 8 </Text>
+                </TouchableOpacity>
+              </View>
+              <View style={styles.cot}>
+                <TouchableOpacity onPress = {()=> {this.click("9")}}>
+                  <Text style={styles.chu}> 9 </Text>
+                </TouchableOpacity>
+              </View>
+
+            </View>
+            <View style={styles.dong}>
+              <View style={styles.cot}>
+                <TouchableOpacity onPress = {()=> {this.clear()}}>
+                  <Text style={styles.chu}> C </Text>
+                </TouchableOpacity>
+              </View>
+              <View style={styles.cot}>
+                <TouchableOpacity onPress = {()=> {this.click("0")}}>
+                  <Text style={styles.chu}> 0 </Text>
+                </TouchableOpacity>
+              </View>
+              <View style={styles.cot}>
+                <TouchableOpacity onPress = {()=> {this.click(".")}}>
+                  <Text style={styles.chu}> . </Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          <View style={styles.button}>
+          <TouchableOpacity onPress={this.props.clickCate}>
+            <Text style={styles.textButton}>Add Category</Text>
+          </TouchableOpacity>
+          </View>
+        </View>
+
+    );
+  }
+}
 const styles = StyleSheet.create({
   menu:{
     flex:1,
@@ -97,62 +206,19 @@ const styles = StyleSheet.create({
   textButton:{
     fontSize: 20,
     color: '#003c8e'
+  },
+  text_input:{
+     height: 60,
+     width: 340,
+     borderColor: 'gray',
+     borderWidth: 1,
+     marginTop: 100,
+     marginBottom:10,
+     justifyContent:'center',
+     alignItems:'center'
+  },
+  font_ti:{
+    color:'black',
+    fontSize:30
   }
 });
-export default class Add extends Component{
-  constructor(props) {
-   super(props);
-   this.state = {
-     text:'',
-     money:''
-   };
- }
-
-  render(){
-    return(
-        <View style={styles.backGround}>
-            <Text style={styles.total}>Tổng tiền là: 20 000 000 </Text>
-            <TextInput
-              style={{height: 60, width: 340, borderColor: 'gray', borderWidth: 1, marginTop: 100, marginBottom:10}}
-              onChangeText={(text) => this.setState({text})}
-              value={this.state.text}
-            />
-
-            <View style={styles.dong}>
-              <View style={styles.cot}>
-                <TouchableOpacity>
-                  <Text style={styles.chu}> 1 </Text>
-                </TouchableOpacity>
-              </View>
-              <View style={styles.cot}><Text style={styles.chu}> 2 </Text></View>
-              <View style={styles.cot}><Text style={styles.chu}> 3 </Text></View>
-
-            </View>
-            <View style={styles.dong}>
-              <View style={styles.cot}><Text style={styles.chu}> 4 </Text></View>
-              <View style={styles.cot}><Text style={styles.chu}> 5 </Text></View>
-              <View style={styles.cot}><Text style={styles.chu}> 6 </Text></View>
-
-            </View>
-            <View style={styles.dong}>
-              <View style={styles.cot}><Text style={styles.chu}> 7 </Text></View>
-              <View style={styles.cot}><Text style={styles.chu}> 8 </Text></View>
-              <View style={styles.cot}><Text style={styles.chu}> 9 </Text></View>
-
-            </View>
-            <View style={styles.dong}>
-              <View style={styles.cot}><Text style={styles.chu}> C </Text></View>
-              <View style={styles.cot}><Text style={styles.chu}> 0 </Text></View>
-              <View style={styles.cot}><Text style={styles.chu}> . </Text></View>
-
-            </View>
-          <View style={styles.button}>
-          <TouchableOpacity onPress={this.props.clickCate}>
-            <Text style={styles.textButton}>Add Category</Text>
-          </TouchableOpacity>
-          </View>
-        </View>
-
-    );
-  }
-}
