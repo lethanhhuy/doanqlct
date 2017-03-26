@@ -54,7 +54,7 @@ export default class Menu extends Component{
          <View style={styles.avatarContainer}>
            <Image
              style={{height:60, width: 60, borderRadius: 30}}
-             source={require("QLCT/images/Icons/avatar.jpg")}
+             source={require("QLCT/images/avatar.jpg")}
             />
            <Text style={styles.name}>Siro đẹp trai của chị 3</Text>
          </View>

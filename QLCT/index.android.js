@@ -22,6 +22,8 @@
    Navigator
  } from 'react-native';
 
+ import Firebase from './src/component/firebase.js';
+
  import Menu from 'QLCT/src/component/Menu.js';
  import Add from './src/component/Add.js';
  import Main from './src/component/Main.js';
@@ -35,6 +37,7 @@ export default class QLCT extends Component {
       case 'main': return( <Main clickAdd={()=>{navigator.push({name:"add"});}}/> );
       case 'add' : return( <Add clickCate={()=>{navigator.push({name:"cate"});}}/>);
       case 'cate': return( <Category clickMain={()=>{navigator.push({name:"main"});}}/>);
+
     }
   }
   render() {
@@ -43,6 +46,7 @@ export default class QLCT extends Component {
         initialRoute={{name:"main"}}
         renderScene={this.renderScene}
       />
+
     );
   }
 }
