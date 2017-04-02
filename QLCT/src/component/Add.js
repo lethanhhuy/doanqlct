@@ -12,6 +12,10 @@ import{
   TouchableOpacity
 }from 'react-native';
 import {Button} from 'react-native-elements';
+
+import Firebase from 'QLCT/src/component/Firebase.js';
+import firebase from 'firebase';
+
 const window=Dimensions.get('window');
 
 export default class Add extends Component{
@@ -34,6 +38,9 @@ export default class Add extends Component{
      text: this.state.clear_text
    });
  }
+
+
+
   render(){
     return(
         <View style={styles.backGround}>
@@ -107,8 +114,8 @@ export default class Add extends Component{
                 </TouchableOpacity>
               </View>
               <View style={styles.cot}>
-                <TouchableOpacity onPress = {()=> {this.click(".")}}>
-                  <Text style={styles.chu}> . </Text>
+                <TouchableOpacity onPress = {()=> {this.click("00")}}>
+                  <Text style={styles.chu}> 00 </Text>
                 </TouchableOpacity>
               </View>
             </View>
@@ -210,7 +217,7 @@ const styles = StyleSheet.create({
   text_input:{
      height: 60,
      width: 340,
-     borderColor: 'gray',
+     borderColor: 'green',
      borderWidth: 1,
      marginTop: 100,
      marginBottom:10,

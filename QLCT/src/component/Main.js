@@ -56,9 +56,10 @@ export default class Main extends Component {
          onChange={(isOpen) => this.updateMenuState(isOpen)}>
          <View style={_styles._f0}>
            <View style={_styles._f1}>
-            <Image style={{marginLeft:5,marginTop:7,height:35,width:35}}
-              source={require('QLCT/images/menu.png')}
-            />
+             <Button style={_styles.Button} onPress={() => this.toggle()}>
+               <Image
+                 source={require('QLCT/images/ic_menu_white_36dp.png')} />
+             </Button>
              <Text style={_styles._top}>Tổng Quan</Text>
             </View>
           <View style={{justifyContent:'center', alignItems:'center'}}>
@@ -85,7 +86,7 @@ export default class Main extends Component {
 class Button extends Component{
   handlePress(e){
     if(this.props.onPress){
-      this.props.opPress(e);
+      this.props.onPress(e);
     }
   }
   render(){
@@ -111,14 +112,14 @@ const _styles = StyleSheet.create(
     },
     _f1:{
       flexDirection:'row',
-      backgroundColor:'#003c8e',
-      height:50,
+      backgroundColor:'rgb(231, 76, 60)',
+      height:35,
     },
     _top:{
       color: 'white',
-      backgroundColor:'#003c8e',
-      paddingTop: 10,
-      paddingLeft:20,
+      backgroundColor:'rgb(231, 76, 60)',
+      paddingTop: 1,
+      paddingLeft:25,
       fontWeight:'bold',
       fontSize:20,
     },
@@ -126,7 +127,13 @@ const _styles = StyleSheet.create(
      fontSize: 20,
      height: 22,
      color: 'white',
-   },
+    },
+    img:{
+       paddingTop: 35,
+       paddingLeft: 30,
+       width:10,
+       height:10,
+     },
   }
 );
 

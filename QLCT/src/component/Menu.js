@@ -1,5 +1,6 @@
 'use strict'
 import React,{Component} from 'react';
+import Firebase from 'QLCT/src/component/Firebase.js';
 import{
   AppRegistry,
   StyleSheet,
@@ -8,6 +9,7 @@ import{
   Text,
   Image,
   View,
+  TouchableOpacity,
 }from 'react-native';
 
 const window=Dimensions.get('window');
@@ -50,31 +52,37 @@ export default class Menu extends Component{
    };
    render(){
      return(
-       <ScrollView scrollstoTop={false} style={styles.menu}>
-         <View style={styles.avatarContainer}>
-           <Image
-             style={{height:60, width: 60, borderRadius: 30}}
-             source={require("QLCT/images/avatar.jpg")}
-            />
-           <Text style={styles.name}>Siro đẹp trai của chị 3</Text>
-         </View>
-         <Text
-           onPress={() =>this.props.onItemselected('abc')}
-           style={styles.item}>
-           Tài Khoản
-         </Text>
-         <Text
-           onPress={() =>this.props.onItemselected('123')}
-           style={styles.item}>
-           Ngân Sách
-         </Text>
-         <Text
-           onPress={() =>this.props.onItemselected('123')}
-           style={styles.item}>
-           Báo Cáo
-         </Text>
-       </ScrollView>
-
+         <ScrollView scrollstoTop={false} style={styles.menu}>
+           <View style={styles.avatarContainer}>
+             <Image
+               style={{height:60, width: 60, borderRadius: 30}}
+               source={require("QLCT/images/avatar.jpg")}
+              />
+             <Text style={styles.name}>Siro đẹp trai của chị 3</Text>
+           </View>
+           <Text
+             onPress={() =>this.props.onItemselected('abc')}
+             style={styles.item}>
+             Tài Khoản
+           </Text>
+           <Text
+             onPress={() =>this.props.onItemselected('123')}
+             style={styles.item}>
+             Ngân Sách
+           </Text>
+           <Text
+             onPress={() =>this.props.onItemselected('123')}
+             style={styles.item}>
+             Báo Cáo
+           </Text>
+           <View>
+             <TouchableOpacity onPress={()=>{this.props.clickLogin}}>
+               <Text style={styles.item}>
+                 Đăng Nhập
+               </Text>
+             </TouchableOpacity>
+           </View>
+         </ScrollView>
      );
    }
 }

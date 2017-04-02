@@ -15,6 +15,7 @@ import {
   Button,
 } from 'react-native';
 
+
 var provider = new firebase.auth.GoogleAuthProvider();
 
 var config = {
