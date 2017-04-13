@@ -16,7 +16,7 @@ import{
 import {Button} from 'react-native-elements';
 const window=Dimensions.get('window');
 
-export default class Category extends Component{
+export default class CateAdd extends Component{
   render(){
     return(
       <View style={styles.backGround}>

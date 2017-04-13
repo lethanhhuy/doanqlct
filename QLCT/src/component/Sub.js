@@ -19,7 +19,7 @@ import firebase from 'firebase';
 var moeny_total = 0;
 const window=Dimensions.get('window');
 
-export default class Add extends Component{
+export default class Sub extends Component{
   constructor(props) {
    super(props);
    this.state = {
@@ -146,7 +146,7 @@ export default class Add extends Component{
               </View>
             </View>
           <View style={styles.button}>
-          <TouchableOpacity onPress={this.props.clickCateAdd}>
+          <TouchableOpacity onPress={this.props.clickCate}>
             <Text style={styles.textButton}>Thêm mục</Text>
           </TouchableOpacity>
           </View>

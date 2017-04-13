@@ -67,6 +67,7 @@ export default class Main extends Component {
          menu={menu}
          isOpen={this.state.isOpen}
          onChange={(isOpen) => this.updateMenuState(isOpen)}>
+
          <View style={_styles._f0}>
            <View style={_styles._f1}>
              <Button style={_styles.Button} onPress={() => this.toggle()}>
@@ -75,19 +76,20 @@ export default class Main extends Component {
              </Button>
              <Text style={_styles._top}>Tổng Quan</Text>
             </View>
+
           <View style={{justifyContent:'center', alignItems:'center'}}>
+
             <TouchableOpacity onPress={this.props.clickDN}>
               <View style={{justifyContent:'center',alignItems:'center',height:50, width:100, borderRadius:15, backgroundColor:'blue',marginTop:20}}>
                     <Text style={{color:'white'}}>Đăng nhập</Text>
               </View>
-
             </TouchableOpacity>
+
             <TouchableOpacity onPress={this.props.clickFB}>
               <View style={{justifyContent:'center',alignItems:'center',height:50, width:100, borderRadius:15, backgroundColor:'blue',marginTop:20}}>
                     <Text style={{color:'white'}}>Firebase</Text>
               </View>
-
-            </TouchableOpacity>
+            </TouchableOpacity>    
             <Image
                 style={{height:200, width:200, marginTop:20,marginBottom:10}}
                 source={require('QLCT/images/chart.png')}
@@ -95,11 +97,25 @@ export default class Main extends Component {
           </View>
 
           <View style={{justifyContent:'center', alignItems:'center', marginTop: 100}}>
+          <View style={{justifyContent:'center', alignItems:'center', marginTop: 80, flexDirection:'row'}}>
+
             <TouchableOpacity
               onPress={this.props.clickAdd}>
-              <Image style={{height:100,width:100}}
+              <View style={{justifyContent:'center', alignItems:'center'}}>
+              <Image style={{height:75,width:75, marginRight:50}}
                 source={require('QLCT/images/add.png')}
               />
+              <Text style={{marginRight:50}}>Thêm thu</Text>
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={this.props.clickSub}>
+              <View style={{justifyContent:'center', alignItems:'center'}}>
+              <Image style={{height:75,width:75, marginLeft:50}}
+                source={require('QLCT/images/sub.png')}
+              />
+              <Text style={{marginLeft:50}}>Thêm chi</Text>
+              </View>
             </TouchableOpacity>
           </View>
         </View>
@@ -133,7 +149,7 @@ const _styles = StyleSheet.create(
        height: 50,
    },
     _f0:{
-      backgroundColor: '#dbefff',
+      backgroundColor: '#eef7ff',
       flex:1,
     },
     _f1:{
