@@ -62,18 +62,26 @@ export default class Main extends Component {
              </Button>
              <Text style={_styles._top}>Tổng Quan</Text>
             </View>
-          <View style={{justifyContent:'center', alignItems:'center'}}>
-            <Image
-                style={{height:200, width:200, marginTop:150}}
-                source={require('QLCT/images/chart.png')}
-            />
+          <View style={{justifyContent:'center', alignItems:'center', marginTop:370}}>
           </View>
-          <View style={{justifyContent:'center', alignItems:'center', marginTop: 100}}>
+          <View style={{justifyContent:'center', alignItems:'center', marginTop: 80, flexDirection:'row'}}>
             <TouchableOpacity
               onPress={this.props.clickAdd}>
-              <Image style={{height:100,width:100}}
+              <View style={{justifyContent:'center', alignItems:'center'}}>
+              <Image style={{height:75,width:75, marginRight:50}}
                 source={require('QLCT/images/add.png')}
               />
+              <Text style={{marginRight:50}}>Thêm thu</Text>
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={this.props.clickSub}>
+              <View style={{justifyContent:'center', alignItems:'center'}}>
+              <Image style={{height:75,width:75, marginLeft:50}}
+                source={require('QLCT/images/sub.png')}
+              />
+              <Text style={{marginLeft:50}}>Thêm chi</Text>
+              </View>
             </TouchableOpacity>
           </View>
         </View>
@@ -107,7 +115,7 @@ const _styles = StyleSheet.create(
        height: 50,
    },
     _f0:{
-      backgroundColor: '#dbefff',
+      backgroundColor: '#eef7ff',
       flex:1,
     },
     _f1:{
