@@ -9,10 +9,13 @@
   "dependencies": {
     "firebase": "^3.7.3",
     "react": "15.4.2",
-    "react-native": "0.42.3",
+    "react-native": "^0.42.3",
+    "react-native-app-intro": "^1.1.5",
     "react-native-chart": "^1.0.8-beta",
     "react-native-circular-action-menu": "^0.4.0",
+    "react-native-drawer": "^2.3.0",
     "react-native-elements": "^0.10.0",
+    "react-native-navigation-drawer": "^1.2.2",
     "react-native-pathjs-charts": "0.0.26",
     "react-native-side-menu": "^0.20.1",
     "react-native-vector-icons": "^4.0.0"

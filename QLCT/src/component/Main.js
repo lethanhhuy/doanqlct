@@ -3,8 +3,10 @@
 
  import React,{Component} from 'react';
  import SideMenu from 'react-native-side-menu';
+ import Drawer from 'react-native-drawer';
  import Menu from 'QLCT/src/component/Menu.js';
  import ActionButton from 'react-native-circular-action-menu';
+  import Login from 'QLCT/src/component/Login.js';
  import {Icon} from 'react-native-elements'
  import {
    AppRegistry,
@@ -33,7 +35,7 @@ export default class Main extends Component {
   }
 
   updateMenuState(isOpen){
-    this.setState({isOpen: isOpen});
+    this.setState({isOpen,});
   }
 
   onMenuItemselected=(item) =>{
@@ -42,9 +44,20 @@ export default class Main extends Component {
        selectedItem:item,
      });
   }
+
+  closeControlPanel = () => {
+    this._drawer.close()
+  };
+
+  openControlPanel = () => {
+    this._drawer.open()
+  };
+
   renderScene(route,navigator){
     switch (route.name){
-      case 'add': return( <Add/> );
+        case 'dangnhap' : return(<Menu clickLogin={()=>{navigator.push({name:"login"});}}/>);
+        case 'login' : return(<Login go={()=>{navigator.push({name:"WebViewdemo"});}}/>);
+        case 'WebViewdemo' : return (<WebViewdemo pop={()=>{navigator.pop({name:"login"})}}/>);
     }
   }
   render() {
@@ -63,11 +76,24 @@ export default class Main extends Component {
              <Text style={_styles._top}>Tổng Quan</Text>
             </View>
           <View style={{justifyContent:'center', alignItems:'center'}}>
+            <TouchableOpacity onPress={this.props.clickDN}>
+              <View style={{justifyContent:'center',alignItems:'center',height:50, width:100, borderRadius:15, backgroundColor:'blue',marginTop:20}}>
+                    <Text style={{color:'white'}}>Đăng nhập</Text>
+              </View>
+
+            </TouchableOpacity>
+            <TouchableOpacity onPress={this.props.clickFB}>
+              <View style={{justifyContent:'center',alignItems:'center',height:50, width:100, borderRadius:15, backgroundColor:'blue',marginTop:20}}>
+                    <Text style={{color:'white'}}>Firebase</Text>
+              </View>
+
+            </TouchableOpacity>
             <Image
-                style={{height:200, width:200, marginTop:150}}
+                style={{height:200, width:200, marginTop:20,marginBottom:10}}
                 source={require('QLCT/images/chart.png')}
             />
           </View>
+
           <View style={{justifyContent:'center', alignItems:'center', marginTop: 100}}>
             <TouchableOpacity
               onPress={this.props.clickAdd}>
@@ -93,7 +119,7 @@ class Button extends Component{
     return(
       <TouchableOpacity
         onPress={this.handlePress.bind(this)}
-        style={this.props.styles}>
+        style={this.props.style}>
         <Text>{this.props.children}</Text>
       </TouchableOpacity>
     );

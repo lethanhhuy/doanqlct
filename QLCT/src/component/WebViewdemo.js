@@ -19,7 +19,7 @@ export default class Login extends Component {
     return(
 
         <WebView
-          source={{uri: 'https://firebase.google.com/'}}
+          source={{uri: 'https://console.firebase.google.com/'}}
           style={{marginTop: 20}}
         />
 
