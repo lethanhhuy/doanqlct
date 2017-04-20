@@ -20,11 +20,22 @@ export default class Category extends Component{
   render(){
     return(
       <View style={styles.backGround}>
-      <Text style={styles.total}>Tổng tiền là: 20 000 000 </Text>
-      <View style={{marginBottom: 100}}></View>
+
+      <View style={styles.header}>
+          <TouchableOpacity onPress={this.props.clickBackSub}>
+            <Image
+              style={{width: 30, height: 30, marginLeft: 5}}
+              source={require('QLCT/images/previous.png')}
+            />
+          </TouchableOpacity>
+          <Text style={styles.header_text}>Chọn mục cho tiền chi</Text>
+
+      </View>
+
+        <View style={{marginBottom: 100}}></View>
         <View style={styles.dong}>
           <View style={styles.cot}>
-            <TouchableOpacity>
+            <TouchableOpacity onLongPress={this.props.clickShopping}>
                 <Image
                   style={{height: 50, width: 50}}
                   source={require('QLCT/images/Icons/shopping.png')}/>
@@ -79,6 +90,19 @@ export default class Category extends Component{
 }
 
 const styles = StyleSheet.create({
+  header_text:{
+    marginRight:window.width/5,
+    fontSize:20,
+    color:'black'
+  },
+  header:{
+    backgroundColor: "#e56100",
+    height: window.height/17,
+    width: window.width,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent:'space-between'
+  },
   menu:{
     flex:1,
     width: window.width,

@@ -41,15 +41,22 @@ export default class Add extends Component{
    });
  }
 
-
-
   render(){
     return(
         <View style={styles.backGround}>
-          <View style={{flexDirection:'row'}}>
-            <Text style={styles.total}>Tổng tiền: </Text>
-            <Text style={styles.total}>{this.state.money_total}</Text>
-          </View>
+
+        <View style={styles.header}>
+            <TouchableOpacity onPress={this.props.clickBack}>
+              <Image
+                style={{width: 30, height: 30, marginLeft: 5}}
+                source={require('QLCT/images/previous.png')}
+              />
+            </TouchableOpacity>
+            <Text style={styles.header_text}>Nhập số tiền thu</Text>
+
+        </View>
+
+
             <View style={styles.text_input}>
               <Text style={styles.font_ti}>{this.state.text}</Text>
             </View>
@@ -145,6 +152,7 @@ export default class Add extends Component{
                 </TouchableOpacity>
               </View>
             </View>
+
           <View style={styles.button}>
           <TouchableOpacity onPress={this.props.clickCateAdd}>
             <Text style={styles.textButton}>Thêm mục</Text>
@@ -156,6 +164,19 @@ export default class Add extends Component{
   }
 }
 const styles = StyleSheet.create({
+  header_text:{
+    marginRight:window.width/5,
+    fontSize:20,
+    color:'black'
+  },
+  header:{
+    backgroundColor: "#e56100",
+    height: window.height/17,
+    width: window.width,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent:'space-between'
+  },
   menu:{
     flex:1,
     width: window.width,

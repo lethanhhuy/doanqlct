@@ -15,14 +15,17 @@
    View,
    AsyncStorage,
    Navigator,
+   ScrollView
  } from 'react-native';
 
+var money_total=0;
 export default class Main extends Component {
   constructor(props){
     super(props);
     this.state={
      isOpen: false,
      selectedItem: 'About',
+     money: '200.000.000',
     };
   }
 
@@ -56,15 +59,51 @@ export default class Main extends Component {
          onChange={(isOpen) => this.updateMenuState(isOpen)}>
          <View style={_styles._f0}>
            <View style={_styles._f1}>
+            <TouchableOpacity onPress={() => this.props.clickMenu}>
              <Button style={_styles.Button} onPress={() => this.toggle()}>
                <Image
                  source={require('QLCT/images/ic_menu_white_36dp.png')} />
              </Button>
+             </TouchableOpacity>
              <Text style={_styles._top}>Tổng Quan</Text>
             </View>
-          <View style={{justifyContent:'center', alignItems:'center', marginTop:370}}>
-          </View>
-          <View style={{justifyContent:'center', alignItems:'center', marginTop: 80, flexDirection:'row'}}>
+
+            <View style={{backgroundColor:"#ffb4b4", width:window.width,height:50, borderRadius:40,
+            marginTop:5, marginLeft:5,marginRight:5,marginBottom:5,
+            justifyContent:'space-between',alignItems:'center',flexDirection:'row'}}>
+              <Text style={{fontSize:20, color:"black",marginLeft:15}}>Số tiền hiện có: </Text>
+              <Text style={{fontSize:20, color:"black"}}>{this.state.money}</Text>
+              <Text style={{fontSize:20, color:"black",marginRight:15}}>Đ</Text>
+
+            </View>
+
+            <ScrollView>
+                <View style={styles.total}>
+                  <View style={styles.the}>
+                    <Image
+                      style={{width: 50, height: 50, marginLeft: 10}}
+                      source={require('QLCT/images/Shopping/non.png')}
+                    />
+                    <Text style={styles.cate_text}>Nón</Text>
+                  </View>
+                  <View style={styles.the}>
+                    <Image
+                      style={{width: 50, height: 50, marginLeft: 10}}
+                      source={require('QLCT/images/Shopping/quan.png')}
+                    />
+                    <Text style={styles.cate_text}>Quần</Text>
+                  </View>
+                  <View style={styles.the}>
+                    <Image
+                      style={{width: 50, height: 50, marginLeft: 10}}
+                      source={require('QLCT/images/Shopping/dongho.png')}
+                    />
+                    <Text style={styles.cate_text}>Đồng hồ</Text>
+                  </View>
+              </View>
+            </ScrollView>
+
+          <View style={{justifyContent:'center', alignItems:'center',flexDirection:'row',marginTop:5}}>
             <TouchableOpacity
               onPress={this.props.clickAdd}>
               <View style={{justifyContent:'center', alignItems:'center'}}>
@@ -84,6 +123,7 @@ export default class Main extends Component {
               </View>
             </TouchableOpacity>
           </View>
+
         </View>
       </SideMenu>
     );
@@ -167,5 +207,59 @@ const styles = StyleSheet.create({
    height: 22,
    color: 'white',
  },
+ total:{
+   flex:1,
+   borderRadius:5,
+   marginBottom:5,
+   marginLeft:5,
+   marginRight:5,
+   marginTop:5,
+   height:410
 
+ },
+ the:{
+   height:50,
+   width:window.width,
+   marginLeft:5,
+   marginRight:5,
+   backgroundColor:"#99c4ff",
+   alignItems:'center',
+   borderRadius:10,
+   flexDirection:"row",
+   marginBottom:3,
+ },
+ the_text:{
+   fontSize:15,
+   color:"#003c8e",
+   marginLeft:15
+ },
+ cate_text:{
+   fontSize:18,
+   color:"#003c8e",
+   marginLeft:15
+ },
+ cate_the:{
+   backgroundColor:'#99c4ff',
+   width:window.width/1.05,
+   height:70,
+   marginLeft:5,
+   marginRight:5,
+   borderRadius:10,
+   borderBottomColor: 'black',
+   borderRightWidth:1,
+   marginBottom:4,
+   flexDirection:"row",
+   alignItems:"center"
+ },
+ cate:{
+   width:window.width/0.3,
+   marginBottom:1,
+   marginTop:window.height/10,
+   backgroundColor:'#eef7ff',
+   borderRightColor: '#003c8e',
+   borderRightWidth:0.5,
+   flex:1,
+   justifyContent:'center',
+   alignItems:'center'
+ },
 });

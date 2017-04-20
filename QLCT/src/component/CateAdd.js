@@ -20,65 +20,111 @@ export default class CateAdd extends Component{
   render(){
     return(
       <View style={styles.backGround}>
-      <Text style={styles.total}>Tổng tiền là: 20 000 000 </Text>
-      <View style={{marginBottom: 100}}></View>
-        <View style={styles.dong}>
-          <View style={styles.cot}>
-            <TouchableOpacity>
-                <Image
-                  style={{height: 50, width: 50}}
-                  source={require('QLCT/images/Icons/shopping.png')}/>
-                <Text>Mua sắm</Text>
+
+      <View style={styles.header}>
+          <TouchableOpacity onPress={this.props.clickBackAdd}>
+            <Image
+              style={{width: 30, height: 30, marginLeft: 5}}
+              source={require('QLCT/images/previous.png')}
+            />
+          </TouchableOpacity>
+          <Text style={styles.header_text}>Chọn mục cho tiền thu</Text>
+
+      </View>
+
+          <View style={styles.cate}>
+            <View style={styles.cate_the}>
+              <Image
+                style={{width: 50, height: 50, marginLeft: 10}}
+                source={require('QLCT/images/salary.png')}
+              />
+              <Text style={styles.cate_text}>Lương</Text>
+            </View>
+            <View style={styles.cate_the}>
+              <Image
+                style={{width: 50, height: 50, marginLeft: 10}}
+                source={require('QLCT/images/salary.png')}
+              />
+              <Text style={styles.cate_text}>Trúng số</Text>
+            </View>
+
+            <View style={styles.cate_the}>
+              <Image
+                style={{width: 50, height: 50, marginLeft: 10}}
+                source={require('QLCT/images/salary.png')}
+              />
+              <Text style={styles.cate_text}>Tiền thưởng</Text>
+            </View>
+            <View style={styles.cate_the}>
+              <Image
+                style={{width: 50, height: 50, marginLeft: 10}}
+                source={require('QLCT/images/salary.png')}
+              />
+              <Text style={styles.cate_text}>Tiền lì xì má cho</Text>
+            </View>
+            <View style={styles.cate_the}>
+              <Image
+                style={{width: 50, height: 50, marginLeft: 10}}
+                source={require('QLCT/images/salary.png')}
+              />
+              <Text style={styles.cate_text}>Khác</Text>
+            </View>
+          </View>
+
+          <View style={styles.button}>
+            <TouchableOpacity onPress={this.props.clickMain}>
+              <Text style={styles.textButton}>Thêm thu</Text>
             </TouchableOpacity>
           </View>
-          <View style={styles.cot}>
-          <Image
-            style={{height: 50, width: 50}}
-            source={require('QLCT/images/Icons/healthy.png')}/>
-            <Text>Sức khỏe</Text>
-          </View>
-          <View style={styles.cot}>
-          <Image
-            style={{height:50, width: 50}}
-            source={require('QLCT/images/Icons/pets.png')}/>
-            <Text>Thú cưng</Text>
-          </View>
-          <View style={styles.cot}>
-          <Image
-            style={{height:50, width: 50}}
-            source={require('QLCT/images/Icons/house.png')}/>
-            <Text>Nhà cửa</Text>
-          </View>
-        </View>
-        <View style={styles.dong}>
-          <View style={styles.cot}></View>
-          <View style={styles.cot}></View>
-          <View style={styles.cot}></View>
-          <View style={styles.cot}></View>
-        </View>
-        <View style={styles.dong}>
-          <View style={styles.cot}></View>
-          <View style={styles.cot}></View>
-          <View style={styles.cot}></View>
-          <View style={styles.cot}></View>
-        </View>
-        <View style={styles.dong}>
-          <View style={styles.cot}></View>
-          <View style={styles.cot}></View>
-          <View style={styles.cot}></View>
-          <View style={styles.cot}></View>
-        </View>
-        <View style={styles.button}>
-        <TouchableOpacity onPress={this.props.clickMain}>
-          <Text style={styles.textButton}>Thêm chi</Text>
-        </TouchableOpacity>
-        </View>
+
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  cate_text:{
+    fontSize:20,
+    color:"#003c8e",
+    marginLeft:15
+  },
+  cate_the:{
+    backgroundColor:'#99c4ff',
+    width:window.width/1.05,
+    height:70,
+    marginLeft:5,
+    marginRight:5,
+    borderRadius:10,
+    borderBottomColor: 'black',
+    borderRightWidth:1,
+    marginBottom:4,
+    flexDirection:"row",
+    alignItems:"center"
+  },
+  cate:{
+    width:window.width/0.3,
+    marginBottom:1,
+    marginTop:window.height/10,
+    backgroundColor:'#eef7ff',
+    borderRightColor: '#003c8e',
+    borderRightWidth:0.5,
+    flex:1,
+    justifyContent:'center',
+    alignItems:'center'
+  },
+  header_text:{
+    marginRight:window.width/5,
+    fontSize:20,
+    color:'black'
+  },
+  header:{
+    backgroundColor: "#e56100",
+    height: window.height/17,
+    width: window.width,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent:'space-between'
+  },
   menu:{
     flex:1,
     width: window.width,
@@ -112,6 +158,7 @@ const styles = StyleSheet.create({
     flex:1,
     backgroundColor:'#eef7ff',
     alignItems: 'center',
+    justifyContent:'space-between'
   },
   dong:{
     borderBottomWidth:0.5,
@@ -161,6 +208,7 @@ const styles = StyleSheet.create({
     backgroundColor:'#99c4ff',
     justifyContent:'center',
     alignItems:'center',
-    flexDirection:'row'
-  },
+    flexDirection:'row',
+    marginBottom:1
+    },
 });
